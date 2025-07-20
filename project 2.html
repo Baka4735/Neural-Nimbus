@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Nimbus - AI-Powered Growth Solutions</title>
+    <meta name="description" content="Leverage cutting-edge AI technology to elevate your brand with stunning visuals, engaging content, and powerful web solutions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .service-card {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .package-card {
+            transition: all 0.4s ease;
+        }
+        .package-card:hover {
+            transform: scale(1.03);
+        }
+        .popular-package {
+            border: 2px solid #a777e3;
+            position: relative;
+            overflow: hidden;
+        }
+        .popular-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #a777e3;
+            color: white;
+            padding: 0.25rem 1rem;
+            font-size: 0.75rem;
+            transform: translate(25%, -50%) rotate(45deg);
+            transform-origin: bottom left;
+            width: 120px;
+            text-align: center;
+        }
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        /* Loading animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        .loader-content {
+            text-align: center;
+        }
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #a777e3;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Mobile menu animation */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .mobile-menu.open {
+            max-height: 500px;
+            transition: max-height 0.5s ease-in;
+        }
+        /* Sticky CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            transform: translateY(100px);
+            transition: transform 0.3s ease;
+        }
+        .sticky-cta.show {
+            transform: translateY(0);
+        }
+        /* Testimonial carousel */
+        .splide__arrow {
+            background: #a777e3 !important;
+        }
+        .splide__pagination__page.is-active {
+            background: #a777e3 !important;
+        }
+        /* Form validation */
+        .form-error {
+            border-color: #ef4444 !important;
+        }
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        /* Animated underline */
+        .underline-animation {
+            position: relative;
+            display: inline-block;
+        }
+        .underline-animation::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #a777e3;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .underline-animation:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        /* Pulse animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <h2 class="text-xl font-bold text-gray-800">Neural Nimbus</h2>
+            <p class="text-gray-600">Loading AI-powered solutions...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-seedling text-purple-600 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold"><span class="text-black">Neural</span> <span class="text-purple-600">Nimbus</span></span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#services" class="text-gray-900 hover:text-purple-600 px-3 py-2 text-sm font-medium underline-animation">Services</a>
+                    <a href="#packages" class="text-gray-900 hover:text-purple-600 px-3 py-2 text-sm font-medium underline-animation">Packages</a>
+                    <a href="#about" class="text-gray-900 hover:text-purple-600 px-3 py-2 text-sm font-medium underline-animation">About</a>
+                    <a href="#team" class="text-gray-900 hover:text-purple-600 px-3 py-2 text-sm font-medium underline-animation">Team</a>
+                    <a href="#faq" class="text-gray-900 hover:text-purple-600 px-3 py-2 text-sm font-medium underline-animation">FAQ</a>
+                    <a href="#contact" class="text-gray-900 hover:text-purple-600 px-3 py-2 text-sm font-medium underline-animation">Contact</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500" aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="mobile-menu md:hidden bg-white" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#services" class="text-gray-900 hover:text-purple-600 block px-3 py-2 text-base font-medium">Services</a>
+                <a href="#packages" class="text-gray-900 hover:text-purple-600 block px-3 py-2 text-base font-medium">Packages</a>
+                <a href="#about" class="text-gray-900 hover:text-purple-600 block px-3 py-2 text-base font-medium">About</a>
+                <a href="#team" class="text-gray-900 hover:text-purple-600 block px-3 py-2 text-base font-medium">Team</a>
+                <a href="#faq" class="text-gray-900 hover:text-purple-600 block px-3 py-2 text-base font-medium">FAQ</a>
+                <a href="#contact" class="text-gray-900 hover:text-purple-600 block px-3 py-2 text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="gradient-bg text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-500"></div>
+        </div>
+        <div class="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
+                    <span class="block">AI-Powered Growth Solutions</span>
+                    <span class="block">For Your Digital Transformation</span>
+                </h1>
+                <p class="mt-3 max-w-md mx-auto text-base sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                    Leverage cutting-edge AI technology to elevate your brand with stunning visuals, engaging content, and powerful web solutions.
+                </p>
+                <div class="mt-10 flex justify-center space-x-4">
+                    <div class="rounded-md shadow">
+                        <a href="#packages" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-purple-700 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10 transition duration-300 hover:shadow-lg">
+                            View Packages
+                        </a>
+                    </div>
+                    <div class="rounded-md shadow">
+                        <a href="#contact" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-800 hover:bg-purple-700 md:py-4 md:text-lg md:px-10 transition duration-300 hover:shadow-lg">
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="stat-card bg-gray-50 p-6 rounded-lg text-center shadow-sm hover:shadow-md">
+                    <div class="text-4xl font-bold gradient-text">250+</div>
+                    <div class="mt-2 text-gray-600 font-medium">Happy Clients</div>
+                </div>
+                <div class="stat-card bg-gray-50 p-6 rounded-lg text-center shadow-sm hover:shadow-md">
+                    <div class="text-4xl font-bold gradient-text">98%</div>
+                    <div class="mt-2 text-gray-600 font-medium">Client Satisfaction</div>
+                </div>
+                <div class="stat-card bg-gray-50 p-6 rounded-lg text-center shadow-sm hover:shadow-md">
+                    <div class="text-4xl font-bold gradient-text">10K+</div>
+                    <div class="mt-2 text-gray-600 font-medium">Projects Completed</div>
+                </div>
+                <div class="stat-card bg-gray-50 p-6 rounded-lg text-center shadow-sm hover:shadow-md">
+                    <div class="text-4xl font-bold gradient-text">24/7</div>
+                    <div class="mt-2 text-gray-600 font-medium">Support Available</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <div id="services" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Our AI-Powered Services
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    We combine human creativity with artificial intelligence to deliver exceptional results.
+                </p>
+            </div>
+
+            <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Thumbnail Creation -->
+                 <div id="thumbnail">
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-purple-100 rounded-md p-3">
+                                <i class="fas fa-image text-purple-600 text-2xl"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h3 class="text-lg font-medium text-gray-900">Thumbnail Creation</h3>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-base text-gray-500">
+                            Eye-catching thumbnails designed to boost your click-through rates using AI-powered design tools and human creativity.
+                        </p>
+                        <ul class="mt-4 space-y-2">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">YouTube & Social Media Thumbnails</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Custom Branded Designs</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">A/B Testing Options</p>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Posting -->
+                 <div id="blog">
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-purple-100 rounded-md p-3">
+                                <i class="fas fa-blog text-purple-600 text-2xl"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h3 class="text-lg font-medium text-gray-900">Blog Posting</h3>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-base text-gray-500">
+                            SEO-optimized blog content created by AI and refined by our expert writers to engage your audience and boost rankings.
+                        </p>
+                        <ul class="mt-4 space-y-2">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Research-Based Articles</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">SEO Optimization</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Regular Content Scheduling</p>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Creation -->
+                 <div id="content">
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-purple-100 rounded-md p-3">
+                                <i class="fas fa-pen-fancy text-purple-600 text-2xl"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h3 class="text-lg font-medium text-gray-900">Content Creation</h3>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-base text-gray-500">
+                            Comprehensive content solutions including social media posts, product descriptions, and marketing copy powered by AI.
+                        </p>
+                        <ul class="mt-4 space-y-2">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Social Media Content</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Email Campaigns</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Brand Storytelling</p>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Website Building -->
+                 <div id="website">
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-purple-100 rounded-md p-3">
+                                <i class="fas fa-laptop-code text-purple-600 text-2xl"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h3 class="text-lg font-medium text-gray-900">Website Building</h3>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-base text-gray-500">
+                            Custom websites built with AI assistance for optimal performance, aesthetics, and user experience.
+                        </p>
+                        <ul class="mt-4 space-y-2">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Responsive Design</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">SEO-Ready Structure</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Fast Loading Times</p>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Editing -->
+                 <div id="video">
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-purple-100 rounded-md p-3">
+                                <i class="fas fa-video text-purple-600 text-2xl"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h3 class="text-lg font-medium text-gray-900">Video Editing</h3>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-base text-gray-500">
+                            Professional video editing services enhanced by AI tools for seamless transitions, effects, and audio synchronization.
+                        </p>
+                        <ul class="mt-4 space-y-2">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">YouTube Videos</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Social Media Clips</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Product Demos</p>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Chatbot Development -->
+                 <div id="chatbot">
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-purple-100 rounded-md p-3">
+                                <i class="fas fa-robot text-purple-600 text-2xl"></i>
+                            </div>
+                            <div class="ml-5">
+                                <h3 class="text-lg font-medium text-gray-900">AI Chatbot Development</h3>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-base text-gray-500">
+                            Custom AI chatbots for your website to improve customer service, lead generation, and user engagement.
+                        </p>
+                        <ul class="mt-4 space-y-2">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">24/7 Customer Support</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Lead Qualification</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Custom Personality & Branding</p>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How It Works Section -->
+    <div class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    How It Works
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    Our simple 4-step process to get your AI-powered solutions
+                </p>
+            </div>
+
+            <div class="mt-16 grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-purple-100 text-purple-600 text-xl font-bold mb-4">
+                        1
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900">Discovery Call</h3>
+                    <p class="mt-2 text-base text-gray-500">
+                        We discuss your needs and goals to understand how we can help.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-purple-100 text-purple-600 text-xl font-bold mb-4">
+                        2
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900">Custom Proposal</h3>
+                    <p class="mt-2 text-base text-gray-500">
+                        We create a tailored solution that fits your requirements.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-purple-100 text-purple-600 text-xl font-bold mb-4">
+                        3
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900">AI + Human Creation</h3>
+                    <p class="mt-2 text-base text-gray-500">
+                        Our team works with AI tools to create your content.
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-purple-100 text-purple-600 text-xl font-bold mb-4">
+                        4
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900">Delivery & Refinement</h3>
+                    <p class="mt-2 text-base text-gray-500">
+                        We deliver the final product and refine based on feedback.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Packages Section -->
+    <div id="packages" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Our Service Packages
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    Flexible packages designed to meet your specific needs and budget.
+                </p>
+            </div>
+
+            <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <!-- Basic Package -->
+                <div class="package-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-gray-900 text-center">Basic</h3>
+                        <div class="mt-4 flex items-center justify-center">
+                            <span class="text-4xl font-extrabold text-gray-900">$199</span>
+                            <span class="ml-1 text-lg font-medium text-gray-500">/mo</span>
+                        </div>
+                        <p class="mt-4 text-sm text-gray-500 text-center">
+                            Perfect for startups and small businesses
+                        </p>
+                        <ul class="mt-6 space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">5 Thumbnail Designs</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">2 Blog Posts (500 words)</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">5 Social Media Posts</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-times-circle text-gray-300"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-500 line-through">Video Editing</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-times-circle text-gray-300"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-500 line-through">Website Building</p>
+                            </li>
+                        </ul>
+                        <div class="mt-8">
+                            <a href="#contact" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition duration-300">
+                                Get Started
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Standard Package -->
+                <div class="package-card popular-package bg-white rounded-lg shadow-md overflow-hidden transform scale-105 z-10">
+                    <div class="popular-badge">POPULAR</div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-gray-900 text-center">Standard</h3>
+                        <div class="mt-4 flex items-center justify-center">
+                            <span class="text-4xl font-extrabold text-gray-900">$649</span>
+                            <span class="ml-1 text-lg font-medium text-gray-500">/mo</span>
+                        </div>
+                        <p class="mt-4 text-sm text-gray-500 text-center">
+                            Best for growing businesses
+                        </p>
+                        <ul class="mt-6 space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">15 Thumbnail Designs</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">8 Blog Posts (1000 words)</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">20 Social Media Posts</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">5 Video Edits (up to 5 min)</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-times-circle text-gray-300"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-500 line-through">Website Building</p>
+                            </li>
+                        </ul>
+                        <div class="mt-8">
+                            <button onclick="location.href='#contact'" 
+                            class="w-full bg-purple-600 border border-transparent rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition duration-300">
+                                Get Started
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Package -->
+                <div class="package-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-gray-900 text-center">Premium</h3>
+                        <div class="mt-4 flex items-center justify-center">
+                            <span class="text-4xl font-extrabold text-gray-900">$949</span>
+                            <span class="ml-1 text-lg font-medium text-gray-500">/mo</span>
+                        </div>
+                        <p class="mt-4 text-sm text-gray-500 text-center">
+                            For established businesses
+                        </p>
+                        <ul class="mt-6 space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">30 Thumbnail Designs</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">15 Blog Posts (1500 words)</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">40 Social Media Posts</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">10 Video Edits (up to 10 min)</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Basic Website Setup</p>
+                            </li>
+                        </ul>
+                        <div class="mt-8">
+                            <button onclick="location.href='#contact'" class="w-full bg-purple-600 border border-transparent rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition duration-300">
+                                Get Started
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Package -->
+                <div class="package-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-gray-900 text-center">Custom</h3>
+                        <div class="mt-4 flex items-center justify-center">
+                            <span class="text-4xl font-extrabold text-gray-900">Custom</span>
+                        </div>
+                        <p class="mt-4 text-sm text-gray-500 text-center">
+                            Tailored solutions for your unique needs
+                        </p>
+                        <ul class="mt-6 space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Custom Thumbnail Designs</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Premium Blog Content</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Complete Social Media Strategy</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Professional Video Production</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-purple-500"></i>
+                                </div>
+                                <p class="ml-3 text-base text-gray-700">Custom Website Development</p>
+                            </li>
+                        </ul>
+                        <div class="mt-8">
+                            <button onclick="location.href='#contact'" class="w-full bg-purple-600 border border-transparent rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition duration-300">
+                                Contact for Pricing
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    About Neural Nimbus
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Where human creativity meets artificial intelligence to create digital magic.
+                </p>
+            </div>
+
+            <div class="mt-20">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900">Our Story</h3>
+                        <p class="mt-4 text-lg text-gray-500">
+                            Founded in 2023, Neural Nimbus was born from the realization that AI could amplify human creativity rather than replace it. We combine the best of both worlds to deliver exceptional digital solutions.
+                        </p>
+                        <p class="mt-4 text-lg text-gray-500">
+                            Our team of designers, writers, developers, and AI specialists work together to create content and solutions that stand out in today's crowded digital landscape.
+                        </p>
+                        <div class="mt-8">
+                            <a href="#contact" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition duration-300">
+                                Learn More About Us
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Team working with AI" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+
+                <div class="mt-16 grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-100 text-purple-600">
+                            <i class="fas fa-brain text-xl"></i>
+                        </div>
+                        <h3 class="mt-6 text-lg font-medium text-gray-900">AI-Enhanced Creativity</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            We use AI as a tool to enhance our creative process, not replace it. This allows us to deliver higher quality work faster.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-100 text-purple-600">
+                            <i class="fas fa-users text-xl"></i>
+                        </div>
+                        <h3 class="mt-6 text-lg font-medium text-gray-900">Client-Centric Approach</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            Every project begins with understanding your unique needs and goals. We're not satisfied until you're thrilled with the results.
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-100 text-purple-600">
+                            <i class="fas fa-chart-line text-xl"></i>
+                        </div>
+                        <h3 class="mt-6 text-lg font-medium text-gray-900">Data-Driven Results</h3>
+                        <p class="mt-2 text-base text-gray-500">
+                            We don't just create beautiful designs and content - we create solutions that drive measurable results for your business.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div id="team" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Meet Our Team
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    The creative minds behind Neural Nimbus
+                </p>
+            </div>
+
+            <div class="mt-16 grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="mx-auto h-40 w-40 rounded-full overflow-hidden border-4 border-purple-100">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Team member" class="h-full w-full object-cover">
+                    </div>
+                    <h3 class="mt-4 text-xl font-bold text-gray-900">Alex Johnson</h3>
+                    <p class="text-purple-600">CEO & Founder</p>
+                    <p class="mt-2 text-gray-600">
+                        AI enthusiast with 10+ years in digital marketing and content creation.
+                    </p>
+                    <div class="mt-4 flex justify-center space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-purple-600"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-purple-600"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="mx-auto h-40 w-40 rounded-full overflow-hidden border-4 border-purple-100">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Team member" class="h-full w-full object-cover">
+                    </div>
+                    <h3 class="mt-4 text-xl font-bold text-gray-900">Sarah Williams</h3>
+                    <p class="text-purple-600">Creative Director</p>
+                    <p class="mt-2 text-gray-600">
+                        Design expert specializing in AI-assisted visual content creation.
+                    </p>
+                    <div class="mt-4 flex justify-center space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-purple-600"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-purple-600"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="mx-auto h-40 w-40 rounded-full overflow-hidden border-4 border-purple-100">
+                        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Team member" class="h-full w-full object-cover">
+                    </div>
+                    <h3 class="mt-4 text-xl font-bold text-gray-900">Michael Chen</h3>
+                    <p class="text-purple-600">Lead Developer</p>
+                    <p class="mt-2 text-gray-600">
+                        Full-stack developer with expertise in AI integration and automation.
+                    </p>
+                    <div class="mt-4 flex justify-center space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-purple-600"><i class="fab fa-github"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-purple-600"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="py-12 bg-purple-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    What Our Clients Say
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Don't just take our word for it - hear from our satisfied clients
+                </p>
+            </div>
+
+            <div class="mt-16 splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="bg-white p-8 rounded-lg shadow mx-4 h-full">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0">
+                                        <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-lg font-medium text-gray-900">Sarah Johnson</div>
+                                        <div class="text-purple-600">CEO, Digital Marketing Co.</div>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <p class="text-gray-600 italic">
+                                        "Neural Nimbus transformed our content strategy. Their AI-powered approach helped us double our engagement while cutting our content production time in half."
+                                    </p>
+                                    <div class="mt-4 text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="bg-white p-8 rounded-lg shadow mx-4 h-full">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0">
+                                        <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-lg font-medium text-gray-900">Michael Chen</div>
+                                        <div class="text-purple-600">Founder, Tech Startup</div>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <p class="text-gray-600 italic">
+                                        "The thumbnails they created for our YouTube channel increased our CTR by 35% in just two months. Their understanding of AI and design is unmatched."
+                                    </p>
+                                    <div class="mt-4 text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="bg-white p-8 rounded-lg shadow mx-4 h-full">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0">
+                                        <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-lg font-medium text-gray-900">David Wilson</div>
+                                        <div class="text-purple-600">Marketing Director</div>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <p class="text-gray-600 italic">
+                                        "Their custom website solution incorporated AI features we didn't even know were possible. It's given us a significant competitive advantage."
+                                    </p>
+                                    <div class="mt-4 text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="bg-white p-8 rounded-lg shadow mx-4 h-full">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0">
+                                        <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="">
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-lg font-medium text-gray-900">Emily Rodriguez</div>
+                                        <div class="text-purple-600">Content Manager</div>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <p class="text-gray-600 italic">
+                                        "The blog content they produce is not only SEO-optimized but actually engaging to read. Our traffic has increased by 120% since working with them."
+                                    </p>
+                                    <div class="mt-4 text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div id="faq" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Frequently Asked Questions
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Answers to common questions about our services
+                </p>
+            </div>
+
+            <div class="mt-16 max-w-3xl mx-auto">
+                <div class="space-y-8">
+                    <div class="border-b border-gray-200 pb-6">
+                        <h3 class="text-lg font-medium text-gray-900">How does the AI-human collaboration work?</h3>
+                        <div class="mt-2">
+                            <p class="text-base text-gray-500">
+                                Our process begins with AI generating initial concepts and drafts, which our human experts then refine, enhance, and personalize. This combination allows us to deliver high-quality results quickly while maintaining the human touch that makes content truly engaging.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-200 pb-6">
+                        <h3 class="text-lg font-medium text-gray-900">What's the turnaround time for projects?</h3>
+                        <div class="mt-2">
+                            <p class="text-base text-gray-500">
+                                Turnaround times vary by project type and complexity. Typically, thumbnail designs are delivered within 24-48 hours, blog posts within 3-5 days, and website projects within 2-4 weeks. We can accommodate rush requests for an additional fee.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-200 pb-6">
+                        <h3 class="text-lg font-medium text-gray-900">Can I request revisions?</h3>
+                        <div class="mt-2">
+                            <p class="text-base text-gray-500">
+                                Absolutely! Each package includes a set number of revisions (typically 2-3 depending on the package). We want you to be completely satisfied with the final product.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-200 pb-6">
+                        <h3 class="text-lg font-medium text-gray-900">How do you ensure content originality?</h3>
+                        <div class="mt-2">
+                            <p class="text-base text-gray-500">
+                                We use multiple AI plagiarism checkers and our human editors verify all content for originality. All work is guaranteed to be unique and tailored to your brand.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="border-b border-gray-200 pb-6">
+                        <h3 class="text-lg font-medium text-gray-900">What if I need to cancel my subscription?</h3>
+                        <div class="mt-2">
+                            <p class="text-base text-gray-500">
+                                You can cancel anytime with 30 days notice. We'll complete any work already in progress and you'll retain all rights to the content created during your subscription.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="gradient-bg text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
+                Ready to Transform Your Digital Presence?
+            </h2>
+            <p class="mt-4 max-w-2xl text-xl mx-auto">
+                Let's discuss how our AI-powered solutions can help your business grow.
+            </p>
+            <div class="mt-8 flex justify-center space-x-4">
+                <a href="#contact" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-purple-700 bg-white hover:bg-gray-50 transition duration-300">
+                    Get Started
+                </a>
+                <a href="#packages" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-800 hover:bg-purple-700 transition duration-300">
+                    View Packages
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Get In Touch
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    Ready to elevate your digital presence with AI-powered solutions?
+                </p>
+            </div>
+
+            <div class="mt-16">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900">Contact Information</h3>
+                        <div class="mt-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-envelope text-purple-600 text-xl"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-lg text-gray-500">Email us at</p>
+                                    <a href="mailto:nekobaka874@gmail.com" class="text-lg text-gray-900 hover:text-purple-600">nekobaka874@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fab fa-whatsapp text-purple-600 text-xl"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-lg text-gray-500">Message us on WhatsApp</p>
+                                    <a href="https://wa.me/971556442788" class="text-lg text-gray-900 hover:text-purple-600">+971 55 644 2788</a>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-phone-alt text-purple-600 text-xl"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <p class="text-lg text-gray-500">Or call us at</p>
+                                    <a href="tel:+971556442788" class="text-lg text-gray-900 hover:text-purple-600">+971 55 644 2788</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-12">
+                            <h3 class="text-xl font-bold text-gray-900">Follow Us</h3>
+                            <div class="mt-4 flex space-x-6">
+                                <a href="#" class="text-gray-400 hover:text-purple-600">
+                                    <i class="fab fa-facebook-f text-2xl"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-purple-600">
+                                    <i class="fab fa-twitter text-2xl"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-purple-600">
+                                    <i class="fab fa-instagram text-2xl"></i>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-purple-600">
+                                    <i class="fab fa-linkedin-in text-2xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <form class="space-y-6" id="contactForm">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700">Your Name *</label>
+                                <div class="mt-1">
+                                    <input type="text" name="name" id="name" autocomplete="name" required class="py-3 px-4 block w-full shadow-sm focus:ring-purple-500 focus:border-purple-500 border-gray-300 rounded-md">
+                                    <div id="name-error" class="error-message hidden">Please enter your name</div>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700">Email Address *</label>
+                                <div class="mt-1">
+                                    <input type="email" name="email" id="email" autocomplete="email" required class="py-3 px-4 block w-full shadow-sm focus:ring-purple-500 focus:border-purple-500 border-gray-300 rounded-md">
+                                    <div id="email-error" class="error-message hidden">Please enter a valid email address</div>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                                <div class="mt-1">
+                                    <input type="tel" name="phone" id="phone" autocomplete="tel" class="py-3 px-4 block w-full shadow-sm focus:ring-purple-500 focus:border-purple-500 border-gray-300 rounded-md">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="package" class="block text-sm font-medium text-gray-700">Select Package</label>
+                                <div class="mt-1">
+                                    <select id="package" name="package" class="py-3 px-4 block w-full shadow-sm focus:ring-purple-500 focus:border-purple-500 border-gray-300 rounded-md">
+                                        <option>Basic Package ($199/month)</option>
+                                        <option selected>Standard Package ($649/month)</option>
+                                        <option>Premium Package ($949/month)</option>
+                                        <option>Custom Package</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="service" class="block text-sm font-medium text-gray-700">Additional Services Needed</label>
+                                <div class="mt-1">
+                                    <select id="service" name="service" class="py-3 px-4 block w-full shadow-sm focus:ring-purple-500 focus:border-purple-500 border-gray-300 rounded-md">
+                                        <option>None, just the package</option>
+                                        <option>Thumbnail Creation</option>
+                                        <option>Blog Posting</option>
+                                        <option>Content Creation</option>
+                                        <option>Website Building</option>
+                                        <option>Video Editing</option>
+                                        <option>AI Chatbot Development</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700">Your Message *</label>
+                                <div class="mt-1">
+                                    <textarea id="message" name="message" rows="4" required class="py-3 px-4 block w-full shadow-sm focus:ring-purple-500 focus:border-purple-500 border-gray-300 rounded-md"></textarea>
+                                    <div id="message-error" class="error-message hidden">Please enter your message</div>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition duration-300">
+                                    Send Message
+                                </button>
+                                <div id="formMessage" class="hidden mt-4 p-4 text-center rounded-md"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky CTA Button -->
+    <div class="sticky-cta" id="stickyCta">
+        <a href="#contact" class="flex items-center justify-center px-6 py-3 border border-transparent rounded-full shadow-lg text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition duration-300 pulse">
+            <i class="fas fa-envelope mr-2"></i> Get Started
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-white text-lg font-semibold">Services</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#thumbnail" class="text-gray-300 hover:text-white transition duration-300">Thumbnail Creation</a></li>
+                        <li><a href="#blog" class="text-gray-300 hover:text-white transition duration-300">Blog Posting</a></li>
+                        <li><a href="#content" class="text-gray-300 hover:text-white transition duration-300">Content Creation</a></li>
+                        <li><a href="#website" class="text-gray-300 hover:text-white transition duration-300">Website Building</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold">Company</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition duration-300">About</a></li>
+                        <li><a href="#team" class="text-gray-300 hover:text-white transition duration-300">Team</a></li>
+                        <li><a href="Careers.html" class="text-gray-300 hover:text-white transition duration-300">Careers</a></li>
+                        <li><a href="Blog.html" class="text-gray-300 hover:text-white transition duration-300">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold">Legal</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="privacy.html" class="text-gray-300 hover:text-white transition duration-300">Privacy</a></li>
+                        <li><a href="terms.html" class="text-gray-300 hover:text-white transition duration-300">Terms</a></li>
+                        <li><a href="Cookies.html" class="text-gray-300 hover:text-white transition duration-300">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold">Connect</h3>
+                    <div class="mt-4 flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <p class="text-gray-300">Subscribe to our newsletter</p>
+                        <div class="mt-2 flex">
+                            <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-md w-full focus:outline-none bg-gray-700 text-white">
+                            <button class="bg-purple-600 text-white px-4 py-2 rounded-r-md hover:bg-purple-700 focus:outline-none transition duration-300">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    &copy; 2023 Neural Nimbus. All rights reserved.
+                </p>
+                <div class="mt-4 md:mt-0 flex space-x-6">
+                    <a href="privacy.html" class="text-gray-400 hover:text-white text-sm transition duration-300">Privacy Policy</a>
+                    <a href="terms.html" class="text-gray-400 hover:text-white text-sm transition duration-300">Terms of Service</a>
+                    <a href="cookies.html" class="text-gray-400 hover:text-white text-sm transition duration-300">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script>
+        // Loading animation
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('loader').style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            
+            menu.classList.toggle('open');
+            if (menu.classList.contains('open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    // Close mobile menu if open
+                    const menu = document.getElementById('mobile-menu');
+                    const icon = document.getElementById('menu-icon');
+                    if (menu.classList.contains('open')) {
+                        menu.classList.remove('open');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+
+        // Show sticky CTA when scrolling down
+        window.addEventListener('scroll', function() {
+            const stickyCta = document.getElementById('stickyCta');
+            if (window.scrollY > 500) {
+                stickyCta.classList.add('show');
+            } else {
+                stickyCta.classList.remove('show');
+            }
+        });
+
+        // Initialize testimonial carousel
+        new Splide('.splide', {
+            type: 'loop',
+            perPage: 3,
+            perMove: 1,
+            gap: '1rem',
+            pagination: true,
+            arrows: true,
+            breakpoints: {
+                1024: {
+                    perPage: 2,
+                },
+                640: {
+                    perPage: 1,
+                }
+            }
+        }).mount();
+
+        // Form validation and submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const formMessage = document.getElementById('formMessage');
+            let isValid = true;
+
+            // Reset error states
+            document.querySelectorAll('.error-message').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('input, textarea').forEach(el => el.classList.remove('form-error'));
+
+            // Validate name
+            if (!form.name.value.trim()) {
+                document.getElementById('name-error').classList.remove('hidden');
+                form.name.classList.add('form-error');
+                isValid = false;
+            }
+
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(form.email.value)) {
+                document.getElementById('email-error').classList.remove('hidden');
+                form.email.classList.add('form-error');
+                isValid = false;
+            }
+
+            // Validate message
+            if (!form.message.value.trim()) {
+                document.getElementById('message-error').classList.remove('hidden');
+                form.message.classList.add('form-error');
+                isValid = false;
+            }
+
+            if (!isValid) {
+                return;
+            }
+
+            // Format and send WhatsApp message
+            const message = `New Contact Form Submission:\n\nName: ${form.name.value}\nEmail: ${form.email.value}\nPhone: ${form.phone.value}\nPackage: ${form.package.value}\nService: ${form.service.value}\nMessage: ${form.message.value}`;
+            window.open(`https://wa.me/971556442788?text=${encodeURIComponent(message)}`, '_blank');
+            
+            // Send to email
+            fetch('https://formspree.io/f/xvojnqwg', {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    showFormMessage('Message sent successfully! We will contact you soon.', 'green');
+                    form.reset();
+                } else {
+                    throw new Error('Failed to send email');
+                }
+            })
+            .catch(() => {
+                showFormMessage('Email failed but WhatsApp message sent! We will contact you soon.', 'yellow');
+            });
+
+            function showFormMessage(text, color) {
+                formMessage.textContent = text;
+                formMessage.className = `mt-4 p-4 text-center rounded-md bg-${color}-100 text-${color}-700`;
+                formMessage.classList.remove('hidden');
+                setTimeout(() => formMessage.classList.add('hidden'), 5000);
+            }
+        });
+
+        // Real-time form validation
+        document.getElementById('name').addEventListener('input', function() {
+            if (this.value.trim()) {
+                this.classList.remove('form-error');
+                document.getElementById('name-error').classList.add('hidden');
+            }
+        });
+
+        document.getElementById('email').addEventListener('input', function() {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailRegex.test(this.value)) {
+                this.classList.remove('form-error');
+                document.getElementById('email-error').classList.add('hidden');
+            }
+        });
+
+        document.getElementById('message').addEventListener('input', function() {
+            if (this.value.trim()) {
+                this.classList.remove('form-error');
+                document.getElementById('message-error').classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

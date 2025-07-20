@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Same head content as your main page -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers at Neural Nimbus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Copy the same styles from your main page */
+        html { scroll-behavior: smooth; }
+        .gradient-bg { background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%); }
+        .service-card:hover { transform: translateY(-10px); }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation (same as main page) -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <!-- Copy your nav from project.html -->
+    </nav>
+
+    <!-- Careers Hero Section -->
+    <div class="gradient-bg text-white py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
+                Join Our Team
+            </h1>
+            <p class="mt-4 max-w-2xl text-xl mx-auto">
+                Help shape the future of AI-powered digital solutions
+            </p>
+        </div>
+    </div>
+
+    <!-- Open Positions -->
+    <div class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-gray-900 text-center">Current Openings</h2>
+            
+            <!-- Job Listing 1 -->
+            <div class="mt-8 bg-gray-50 rounded-lg shadow-md overflow-hidden">
+                <div class="p-6 md:flex md:items-center md:justify-between">
+                    <div class="md:w-2/3">
+                        <h3 class="text-xl font-bold text-gray-900">AI Content Specialist</h3>
+                        <div class="mt-2 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                                Full-time
+                            </span>
+                            <span class="px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                Remote
+                            </span>
+                        </div>
+                        <p class="mt-4 text-gray-600">
+                            Create and refine AI-generated content for clients across various industries.
+                        </p>
+                    </div>
+                    <div class="mt-4 md:mt-0">
+                        <a href="#apply" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Listing 2 -->
+            <div class="mt-6 bg-gray-50 rounded-lg shadow-md overflow-hidden">
+                <div class="p-6 md:flex md:items-center md:justify-between">
+                    <div class="md:w-2/3">
+                        <h3 class="text-xl font-bold text-gray-900">Digital Designer</h3>
+                        <div class="mt-2 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                                Full-time
+                            </span>
+                            <span class="px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                Hybrid
+                            </span>
+                        </div>
+                        <p class="mt-4 text-gray-600">
+                            Design stunning visuals and thumbnails using AI-assisted tools.
+                        </p>
+                    </div>
+                    <div class="mt-4 md:mt-0">
+                        <a href="#apply" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Listing 3 -->
+            <div class="mt-6 bg-gray-50 rounded-lg shadow-md overflow-hidden">
+                <div class="p-6 md:flex md:items-center md:justify-between">
+                    <div class="md:w-2/3">
+                        <h3 class="text-xl font-bold text-gray-900">AI Developer</h3>
+                        <div class="mt-2 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                                Contract
+                            </span>
+                            <span class="px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                Remote
+                            </span>
+                        </div>
+                        <p class="mt-4 text-gray-600">
+                            Develop and implement AI solutions for content generation and automation.
+                        </p>
+                    </div>
+                    <div class="mt-4 md:mt-0">
+                        <a href="#apply" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                <!-- Application Form -->
+<div id="apply" class="py-12 bg-gray-50">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Apply for Position</h2>
+            
+            <!-- Updated Form with Formspree -->
+ <form 
+    id="jobApplicationForm" 
+    action="https://getform.io/f/abc123xyz"
+    method="POST"
+    enctype="multipart/form-data"
+    class="space-y-4"
+>
+    <!-- Required Fields -->
+    <div>
+        <label class="block text-sm font-medium text-gray-700">Full Name *</label>
+        <input type="text" name="full_name" required
+               class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3">
+    </div>
+
+    <div>
+        <label class="block text-sm font-medium text-gray-700">Email *</label>
+        <input type="email" name="email" required
+               class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3">
+    </div>
+
+    <!-- File Upload (Test with this first) -->
+    <div>
+        <label class="block text-sm font-medium text-gray-700">Resume (PDF) *</label>
+        <input type="file" name="resume" accept=".pdf" required
+               class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100">
+    </div>
+
+    <button type="submit" 
+            class="w-full bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-purple-700">
+        Submit Application
+    </button>
+</form>
+
+<div id="formResult" class="hidden mt-4 p-4 rounded-md"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('jobApplicationForm');
+    const resultDiv = document.getElementById('formResult');
+    
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitBtn = form.querySelector('button[type="submit"]');
+        
+        // Reset UI
+        resultDiv.classList.add('hidden');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+            <span class="inline-flex items-center">
+                <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" 
+                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Sending...
+            </span>
+        `;
+
+        try {
+            // 1. Validate FormData
+            const formData = new FormData(form);
+            if (!formData.get('full_name') || !formData.get('email')) {
+                throw new Error('Missing required fields');
+            }
+
+            // 2. Test API connection
+            const testResponse = await fetch(form.action, {
+                method: 'HEAD' // Just check if endpoint exists
+            });
+            
+            if (!testResponse.ok) {
+                throw new Error('Form endpoint not found');
+            }
+
+            // 3. Submit actual data
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Submission failed');
+            }
+
+            // Success
+            showResult('✅ Application submitted successfully!', 'bg-green-100 text-green-800');
+            form.reset();
+            
+        } catch (error) {
+            showResult(`❌ Error: ${error.message}`, 'bg-red-100 text-red-800');
+            console.error('Submission error:', error);
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Application';
+        }
+    });
+
+    function showResult(message, styles) {
+        resultDiv.innerHTML = message;
+        resultDiv.className = `mt-4 p-4 rounded-md ${styles}`;
+        resultDiv.classList.remove('hidden');
+    }
+});
+</script>
+</body>
+</html>
